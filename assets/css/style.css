@@ -1,20 +1,20 @@
-/*
+/* 
     JStu
-    HW 3 CSS Stylesheet 2019
+    HW 3 Word Guessing Game CSS Stylesheet 2019
     UTexas PTF Coding Bootcamp
 */
 
-/*Element CSS*/
+
 html, body{
     background-image: url("../images/Background/starry_night_sky.jpg");
     background-color: black;
     color: #ffffff;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    font-family: 'Fugaz One', cursive;
 
-    /*Properties for sticky footer, flexbox for variable height*/
+    /*Sticky footer- flexbox for fluid heighth*/
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -33,10 +33,10 @@ footer{
     text-align: center;
     background-color: black;
     color: #ffffff;
-    padding: 20px 0 10px;
-    margin-top: 20px;
-    border-top: 1px solid steelblue;
-    font-size: 10px;
+    padding: 25px 0 15px;
+    margin-top: 25px;
+    border-top: 5px solid steelblue;
+    font-size: 15px;
 }
 
 img{

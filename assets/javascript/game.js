@@ -1,10 +1,9 @@
 /*
-    J Stu
-    HW 3 Javascript file, 2019
+    JStu
+    HW 3 Word Guessing Game JavaScript 2019
     UTexas PTF Coding Bootcamp
 */
 
-//HTML hookup variables
 var userGuess = document.getElementById("userGuess"); //TODO link to show past wrong guess
 var userAnswer = document.getElementById("userAnswer"); //TODO link to show users right guesses
 var userWins = document.getElementById("win"); 
@@ -22,7 +21,7 @@ var gameCore = {
     loseCount: 0,
     triesLeft: 10,
     wordList: ['SPOCK', 'ENTERPRISE', 'KLINGON', 'VULCAN', 'DEEP SPACE 9', 'FEDERATION', 'SCOTTY', 'BONES' , 'PICARD', 'CRUSHER'], //List of words for game
-    imgList: ['Spock.jpg', 'enterpris.jpg', 'Klingon.jpg', 'vulcan.jpg', 'DS9.jpg', 'UFP.jpg', 'Scotty.jpg', 'Bones.jpg', 'Picard.jpg', 'Crusher.jpg'], //List image reference
+    imgList: ['Spock.jpg', 'enterprise.jpg', 'Klingon.jpg', 'vulcan.jpg', 'DS9.jpg', 'UFP.jpg', 'Scotty.jpg', 'Bones.jpg', 'Picard.jpg', 'Crusher.jpg'], //List image reference
     answers: "",
     imageSrc: "",
     displayWord: [], //Empty list to display word as '_' and to compare with answers
@@ -42,11 +41,11 @@ var gameCore = {
         var ranNum = Math.floor(Math.random() * this.wordList.length)
         this.answers = this.wordList[ranNum];
         this.imageSrc = this.imgList[ranNum];
-        //console.log(this.answers); //DEBUG CODE/ GAME CHEAT REMOVE WHEN DONE
+        
         this.displayWordBlank();
 
         message.textContent = "Space: The Final Frontier...";
-        userGuess.textContent = "You Guessed: ";
+        userGuess.textContent = "You've Guessed: ";
         userTries.textContent = this.triesLeft;
         inputField.value = ""; //make sure field is blank upon reset
     },
@@ -124,13 +123,13 @@ document.onkeyup = function(event){
         //Game hasn't started, 'press anykey event' flag
         inputField.value = ""; //Redundant code to ensure field is blank
         gameCore.gameStart = true;
-        instructions.textContent = "Please enter a letter";
+        instructions.textContent = "Letters ONLY please";
         gameCore.gameReset();
     }
     else if(checkAnswer()){
         //User Wins
         gameCore.gameReset();
-        instructions.textContent = "Please enter a letter";
+        instructions.textContent = "Letters ONLY please";
     }
     else if (gameCore.triesLeft > 0){
         //Round is not over
@@ -160,8 +159,8 @@ document.onkeyup = function(event){
                     //this is here so user can see the final word
                     gameCore.winCount++;
                     userWins.textContent = gameCore.winCount;
-                    message.textContent = "You Got it !";
-                    instructions.textContent = "Enter any key to continue";
+                    message.textContent = "Correct!";
+                    instructions.textContent = "Depress any key to continue";
                     img.src = "assets/images/" + gameCore.imageSrc;
                 }
             }
@@ -170,8 +169,8 @@ document.onkeyup = function(event){
                 gameCore.triesLeft--;
 
                 if(gameCore.triesLeft == 0){
-                    instructions.textContent = "Enter any key to continue";
-                    message.textContent = "The Answer was: " + gameCore.answers;
+                    instructions.textContent = "Depress any key to continue";
+                    message.textContent = "The correct answer was: " + gameCore.answers;
                 }
 
                 //Link values to HTML
